@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-import os
-import sys
 import configparser
 import discord
+import os
+import sys
+
 
 USER_INI = os.path.abspath(os.path.expanduser('~/.dbot'))
 
@@ -25,12 +26,12 @@ def discordPost(toChannel, msg):
             await channel.send(msg)
             print("Posted to %s, the message: %s" % (toChannel, msg))
         await client.close()
-        
+
     client.run(BOT_TOKEN)
-    
+
+
 if __name__ == "__main__":
     assert len(sys.argv) == 3 and "Need channelName and message"
     toChannel = sys.argv[1]
     msg = sys.argv[2]
     discordPost(toChannel, msg)
-
