@@ -13,12 +13,10 @@ config.read(USER_INI)
 
 BOT_TOKEN = config['DEFAULT']['BOT_TOKEN']
 BOT_USER = config['DEFAULT']['BOT_USER']
+CHANNEL_NAME = config['DEFAULT']['CHANNEL_NAME']
 
 QUOTES_FILE = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'quotes.tsv')
-
-# CHANNEL_NAME = 'privateadmin'
-CHANNEL_NAME = 'chit-chat'
 
 
 def getRandomQuote():
