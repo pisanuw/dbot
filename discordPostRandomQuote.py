@@ -17,6 +17,7 @@ import configparser
 import csv
 import os
 import random
+import socket
 
 import discord
 
@@ -58,8 +59,15 @@ def discordPost():
 
     Connects with the bot token, waits for the ready event, sends the quote
     to CHANNEL_NAME if that channel is found, and closes the connection.
+
+    The posting machine's hostname is appended to the message so that
+    duplicate posts (e.g. the same cron job running on more than one machine)
+    can be traced back to the machine that sent them.
     """
+    # socket.gethostname() identifies which machine posted this quote.
+    hostname = socket.gethostname()
     msg = "**Quote of the Day:** " + getRandomQuote()
+    msg += "\n_(posted by " + hostname + ")_"
 
     intents = discord.Intents.default()
     intents.message_content = True
