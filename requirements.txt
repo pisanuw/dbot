@@ -1,0 +1,3 @@
+# Discord bot library (discord.py). 2.x is required for the
+# message_content intent used by discordPostRandomQuote.py.
+discord.py>=2.0
